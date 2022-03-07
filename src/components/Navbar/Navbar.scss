@@ -1,0 +1,51 @@
+.nav {
+  width: 100%;
+  padding: 1.5rem 4rem;
+  background: transparent;
+  // background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  position: fixed;
+  z-index: 2;
+  .nav-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      color: #fff;
+      font-family: inherit;
+      letter-spacing: 1px;
+    }
+
+    ul {
+      display: flex;
+      gap: 1rem;
+      color: #fff;
+    }
+
+    .nav-cart-contanier {
+      position: relative;
+      cursor: pointer;
+      svg {
+        font-size: 2rem;
+        color: #fff;
+      }
+
+      p {
+        position: absolute;
+        top: -1rem;
+        right: -1rem;
+        background: var(--primaryColor);
+        color: #fff;
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-weight: 500;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

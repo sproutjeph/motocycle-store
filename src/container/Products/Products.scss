@@ -1,0 +1,44 @@
+.products {
+  padding: 2rem;
+  background-color: var(--mainGrey);
+  .products__title {
+    text-align: center;
+    span {
+      color: var(--primaryColor);
+    }
+  }
+
+  .products__categories {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 2rem 3rem 2rem;
+    flex-wrap: wrap;
+
+    .category-btn {
+      margin: 1rem 1rem 0 0;
+      background-color: var(--primaryColor);
+      padding: 0.4rem 1.2rem;
+      color: #fff;
+      font-size: 1rem;
+      letter-spacing: 1.2px;
+      text-transform: capitalize;
+      border-radius: 5px;
+      transition: var(--transition);
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+}
