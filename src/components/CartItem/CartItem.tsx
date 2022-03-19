@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 import { useGlobalContext } from '../../context';
 import './CartItem.scss';

@@ -8,17 +8,15 @@ const Navbar = () => {
   const { openCart, nuOfItemsInCart, toggleSidebar, user, signOutUser } =
     useGlobalContext();
 
-  /* @ts-ignore */
-
-  console.log(user?.auth.currentUser.email);
-
   return (
     <nav className="nav">
       <div className="nav__center">
         <button className="nav__menu-btn" onClick={toggleSidebar}>
           <FaBars />
         </button>
-        <h2 className="nav__logo">J-Sprout</h2>
+        <Link to="/">
+          <h2 className="nav__logo">J-Sprout</h2>
+        </Link>
         <div className="nav__user">
           <span className="nav__welcome">Hello</span>
           <strong className="nav__userName">

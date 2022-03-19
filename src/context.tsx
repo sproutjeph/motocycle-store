@@ -54,14 +54,21 @@ const AppProvider = ({ children }: { children: ReactNode }) => {
   };
   const registerUser = async (e: React.FormEvent, userData: IUser) => {
     e.preventDefault();
+    if (
+      userData.email.trim().length === 0 ||
+      userData.email.trim().length < 3
+    ) {
+      alert('invalid data');
+      return;
+    }
     try {
-      const user = await createUserWithEmailAndPassword(
+      await createUserWithEmailAndPassword(
         auth,
         userData.email,
         userData.password
       );
-      console.log(user);
     } catch (error) {
+      alert(error);
       console.log(error);
     }
   };
@@ -69,11 +76,7 @@ const AppProvider = ({ children }: { children: ReactNode }) => {
   const signInUser = async (e: React.FormEvent, userData: IUser) => {
     e.preventDefault();
     try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        userData.email,
-        userData.password
-      );
+      await signInWithEmailAndPassword(auth, userData.email, userData.password);
 
       if (auth) {
         navigate('/');
@@ -100,6 +103,7 @@ const AppProvider = ({ children }: { children: ReactNode }) => {
   const showByCategory = (category: string) => {
     dispatch({ type: ActionKinds.SHOW_BY_CATEGORY, payload: category });
   };
+
   const addToCart = (id: number) => {
     dispatch({ type: ActionKinds.ADD_TO_CART, payload: id });
   };

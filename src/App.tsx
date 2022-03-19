@@ -1,3 +1,4 @@
+import ReactDom from 'react-dom';
 import { Details, Navbar, Sidebar } from './components';
 import { Cart, Header, Products } from './container';
 import { Routes, Route } from 'react-router-dom';
@@ -6,6 +7,8 @@ import { useGlobalContext } from './context';
 import { useEffect } from 'react';
 import { auth } from './firebase';
 const App = () => {
+  const sidebarRoot = document.getElementById('sidebar-root') as HTMLElement;
+  const cartRoot = document.getElementById('cart-root') as HTMLElement;
   const { handleAuth } = useGlobalContext();
 
   useEffect(() => {
@@ -14,9 +17,9 @@ const App = () => {
 
   return (
     <>
+      {ReactDom.createPortal(<Sidebar />, sidebarRoot)}
+      {ReactDom.createPortal(<Cart />, cartRoot)}
       <Navbar />
-      <Cart />
-      <Sidebar />
       <Routes>
         <Route
           path="/"
