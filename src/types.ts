@@ -1,3 +1,5 @@
+import React from 'react';
+
 export enum ActionKinds {
   'ADD_TO_CART' = 'ADD_TO_CART',
   'REMOVE_ITEM' = 'REMOVE_ITEM',
@@ -11,6 +13,8 @@ export enum ActionKinds {
   'OPEN_CART' = 'OPEN_CART',
   'CLOSE_CART' = 'CLOSE_CART',
   'SHOW_BY_CATEGORY' = 'SHOW_BY_CATEGORY',
+  'TOGGLESIDEBAR' = 'TOGGLESIDEBAR',
+  'AUTH_USER' = 'AUTH_USER',
 }
 
 export interface ProductInter {
@@ -36,6 +40,8 @@ export interface DefaultStateInterface {
   nuOfItemsInCart: number;
   isCartOpen: boolean;
   isLoading: boolean;
+  isSidebarOpen: boolean;
+  user: null;
 }
 
 export interface ActionsInterface {
@@ -43,6 +49,11 @@ export interface ActionsInterface {
   payload?: any;
 }
 
+export interface IUser {
+  name: string;
+  email: string;
+  password: string;
+}
 export interface ValueInterface extends DefaultStateInterface {
   openCart: () => void;
   closeCart: () => void;
@@ -52,4 +63,9 @@ export interface ValueInterface extends DefaultStateInterface {
   removeItem: (id: number) => void;
   increaseItem: (id: number) => void;
   decreaseItem: (id: number) => void;
+  toggleSidebar: () => void;
+  handleAuth: () => void;
+  registerUser: (e: React.FormEvent, userData: IUser) => void;
+  signInUser: (e: React.FormEvent, userData: IUser) => void;
+  signOutUser: () => void;
 }

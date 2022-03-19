@@ -11,6 +11,12 @@ const reducer = (state: DefaultStateInterface, action: ActionsInterface) => {
   if (action.type === ActionKinds.LOADING) {
     return { ...state, isLoading: true };
   }
+  if (action.type === ActionKinds.AUTH_USER) {
+    return { ...state, user: action.payload };
+  }
+  if (action.type === ActionKinds.TOGGLESIDEBAR) {
+    return { ...state, isSidebarOpen: !state.isSidebarOpen };
+  }
   if (action.type === ActionKinds.OPEN_CART) {
     return { ...state, isCartOpen: action.payload };
   }

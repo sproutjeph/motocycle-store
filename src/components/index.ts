@@ -5,3 +5,4 @@ export { default as Category } from './Category/Category';
 
 export { default as ProductItem } from './ProductItem/ProductItem';
 export { default as Details } from './Details/Details';
+export { default as Sidebar } from './Sidebar/Sidebar';
